@@ -11,19 +11,19 @@ In the context of *soil testing*, UKI enables farmers to discover service provid
 <h3>Table of Contents</h3>
 
 <details>
-  <summary><a href="#objective">&emsp;Objective</a></summary>
+  <summary>&emsp;<a href="#objective">Objective</a></summary>
   <ul>
   </ul>
 </details>
 
 <details>
-  <summary><a href="#overview-of-the-soil-testing-use-case">&emsp;Overview of the Soil Testing Use Case</a></summary>
+  <summary>&emsp;<a href="#overview-of-the-soil-testing-use-case">Overview of the Soil Testing Use Case</a></summary>
   <ul>
   </ul>
 </details>
 
 <details>
-  <summary><a href="#understanding-beckn-roles">&emsp;Understanding Beckn Roles</a></summary>
+  <summary>&emsp;<a href="#understanding-beckn-roles">Understanding Beckn Roles</a></summary>
 
 - [3.1 BAP (Beckn App Platform)](#31-bap--beckn-app-platform)
 
@@ -36,7 +36,7 @@ In the context of *soil testing*, UKI enables farmers to discover service provid
 </details>
 
 <details>
-  <summary><a href="#service-flow-breakdown">&emsp;Service Flow Breakdown</a></summary>
+  <summary>&emsp;<a href="#service-flow-breakdown">Service Flow Breakdown</a></summary>
 
 - [4.1 Discovery Phase](#41-discovery-phase)
 
@@ -49,14 +49,14 @@ In the context of *soil testing*, UKI enables farmers to discover service provid
 </details>
 
 <details>
-  <summary><a href="./api-reference.md">&emsp;API Call Sequence</a></summary>
+  <summary>&emsp;<a href="./api-reference.md">API Call Sequence</a></summary>
 
   <details>
-    <summary><a href="./api-reference.md#role-wise-api-endpoint-summary">Role-wise API Endpoint Summary</a></summary>
+    <summary>&emsp;&emsp;<a href="./api-reference.md#role-wise-api-endpoint-summary">Role-wise API Endpoint Summary</a></summary>
   </details>
 
   <details>
-    <summary><a href="./api-reference.md#beckn-application-platform-bap">Beckn Application Platform (BAP)</a></summary>
+    <summary>&emsp;&emsp;<a href="./api-reference.md#beckn-application-platform-bap">Beckn Application Platform (BAP)</a></summary>
 
   -   [`/on_search`](./api-reference.md#on_search)
   -   [`/on_select`](./api-reference.md#on_select)
@@ -72,7 +72,7 @@ In the context of *soil testing*, UKI enables farmers to discover service provid
   </details>
 
   <details>
-    <summary><a href="./api-reference.md#beckn-gateway-bg">Beckn Gateway (BG)</a></summary>
+    <summary>&emsp;&emsp;<a href="./api-reference.md#beckn-gateway-bg">Beckn Gateway (BG)</a></summary>
 
   -   [`/search`](./api-reference.md#search)
   -   [`/on_search`](./api-reference.md#on_search)
@@ -80,7 +80,7 @@ In the context of *soil testing*, UKI enables farmers to discover service provid
   </details>
 
   <details>
-    <summary><a href="./api-reference.md#beckn-provider-platform-bpp">Beckn Provider Platform (BPP)</a></summary>
+    <summary>&emsp;&emsp;<a href="./api-reference.md#beckn-provider-platform-bpp">Beckn Provider Platform (BPP)</a></summary>
 
   -   [`/search`](./api-reference.md#search)
   -   [`/select`](./api-reference.md#select)
@@ -95,7 +95,7 @@ In the context of *soil testing*, UKI enables farmers to discover service provid
   </details>
 
   <details>
-    <summary><a href="./api-reference.md#developer-notes">Developer Notes</a></summary>
+    <summary>&emsp;&emsp;<a href="./api-reference.md#developer-notes">Developer Notes</a></summary>
   </details>
 
 </details>
@@ -103,7 +103,7 @@ In the context of *soil testing*, UKI enables farmers to discover service provid
 
 <details>
   <summary>
-    <a href="#challenges--assumptions">&emsp;Challenges & Assumptions</a>
+    &emsp;<a href="#challenges--assumptions">Challenges & Assumptions</a>
   </summary>
   <ul>
   </ul>

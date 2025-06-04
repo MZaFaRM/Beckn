@@ -5,11 +5,11 @@ This document provides the full API reference for Beckn-compliant endpoints used
 <h3>Table of Contents</h3>
 
 <details>
-<summary><a href="#role-wise-api-endpoint-summary">Role-wise API Endpoint Summary</a></summary>
+<summary>&emsp;<a href="#role-wise-api-endpoint-summary">Role-wise API Endpoint Summary</a></summary>
 </details>
 
 <details>
-<summary><a href="#beckn-application-platform-bap">Beckn Application Platform (BAP)</a></summary>
+<summary>&emsp;<a href="#beckn-application-platform-bap">Beckn Application Platform (BAP)</a></summary>
 
 -   [`/on_search`](#on_search)
 -   [`/on_select`](#on_select)
@@ -25,7 +25,7 @@ This document provides the full API reference for Beckn-compliant endpoints used
 </details>
 
 <details>
-<summary><a href="#beckn-gateway-bg">Beckn Gateway (BG)</a></summary>
+<summary>&emsp;<a href="#beckn-gateway-bg">Beckn Gateway (BG)</a></summary>
 
 -   [`/search`](#search)
 -   [`/on_search`](#on_search)
@@ -33,7 +33,7 @@ This document provides the full API reference for Beckn-compliant endpoints used
 </details>
 
 <details>
-<summary><a href="#beckn-provider-platform-bpp">Beckn Provider Platform (BPP)</a></summary>
+<summary>&emsp;<a href="#beckn-provider-platform-bpp">Beckn Provider Platform (BPP)</a></summary>
 
 -   [`/search`](#search)
 -   [`/select`](#select)
@@ -48,7 +48,7 @@ This document provides the full API reference for Beckn-compliant endpoints used
 </details>
 
 <details>
-<summary><a href="#developer-notes">Developer Notes</a></summary>
+<summary>&emsp;<a href="#developer-notes">Developer Notes</a></summary>
 </details>
 
 ## Role-wise API Endpoint Summary
@@ -79,13 +79,11 @@ This document provides the full API reference for Beckn-compliant endpoints used
       <td>Post-Fulfillment</td>
       <td><code>/on_rating</code>, <code>/on_support</code></td>
     </tr>
-
     <tr>
       <td rowspan="1">Beckn Gateway&nbsp;(BG)</td>
       <td>Discovery</td>
       <td><code>/search</code>, <code>/on_search</code></td>
     </tr>
-
     <tr>
       <td rowspan="4">Beckn Provider Platform&nbsp;(BPP)</td>
       <td>Discovery</td>
@@ -464,9 +462,8 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
 ## Developer Notes
 
--   All API timestamps must be in UTC and follow the ISO 8601 format (`YYYY-MM-DDTHH:mm:ss.sssZ`).
+-   All API timestamps must follow a common format.
 
--   `transaction_id` should be reused across all API calls for a single flow to maintain traceability.
 -   During development, leverage the Beckn sandbox environment and mock BPPs to simulate soil test services.
 -   Validate payloads against the Beckn schema before sending; inconsistencies in nested structures (`quote`, `fulfillment`, etc.) often go unnoticed without strict validation.
 -   Log all incoming and outgoing payloads with headers for debugging asynchronous flows.
