@@ -126,8 +126,8 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
 ### `/on_select`
 
-**Purpose:** Return quote and draft order.
-**Phase:** Order
+- **Purpose:** Return quote and draft order.
+- **Phase:** Order
 
 -   **Method:** `POST`
 -   **Request Body Schema:**
@@ -143,8 +143,8 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
 ### `/on_init`
 
-**Purpose:** Return updated order info and payment terms.
-**Phase:** Order
+- **Purpose:** Return updated order info and payment terms.
+- **Phase:** Order
 
 -   **Method:** `POST`
 -   **Request Body Schema:**
@@ -160,8 +160,8 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
 ### `/on_confirm`
 
-**Purpose:** Confirm the order and share transaction ID.
-**Phase:** Order
+- **Purpose:** Confirm the order and share transaction ID.
+- **Phase:** Order
 
 -   **Method:** `POST`
 -   **Request Body Schema:**
@@ -177,8 +177,8 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
 ### `/on_status`
 
-**Purpose:** Provide order status.
-**Phase:** Fulfillment
+- **Purpose:** Provide order status.
+- **Phase:** Fulfillment
 
 -   **Method:** `POST`
 -   **Request Body Schema:**
@@ -194,8 +194,8 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
 ### `/on_track`
 
-**Purpose:** Return tracking data.
-**Phase:** Fulfillment
+- **Purpose:** Return tracking data.
+- **Phase:** Fulfillment
 
 -   **Method:** `POST`
 -   **Request Body Schema:**
@@ -211,8 +211,8 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
 ### `/on_cancel`
 
-**Purpose:** Confirm cancellation.
-**Phase:** Fulfillment
+- **Purpose:** Confirm cancellation.
+- **Phase:** Fulfillment
 
 -   **Method:** `POST`
 -   **Request Body Schema:**
@@ -228,8 +228,8 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
 ### `/on_update`
 
-**Purpose:** Notify updates in order or fulfillment state.
-**Phase:** Fulfillment
+- **Purpose:** Notify updates in order or fulfillment state.
+- **Phase:** Fulfillment
 
 -   **Method:** `POST`
 -   **Request Body Schema:**
@@ -245,8 +245,8 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
 ### `/on_rating`
 
-**Purpose:** Acknowledge or forward received feedback.
-**Phase:** Post-Fulfillment
+- **Purpose:** Acknowledge or forward received feedback.
+- **Phase:** Post-Fulfillment
 
 -   **Method:** `POST`
 -   **Request Body Schema:**
@@ -262,8 +262,8 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
 ### `/on_support`
 
-**Purpose:** Provide support resolution or contact.
-**Phase:** Post-Fulfillment
+- **Purpose:** Provide support resolution or contact.
+- **Phase:** Post-Fulfillment
 
 -   **Method:** `POST`
 -   **Request Body Schema:**
@@ -281,8 +281,8 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
 ### `/search`
 
-**Purpose:** Accept search from BAP and forward to eligible BPPs.
-**Phase:** Discovery
+- **Purpose:** Accept search from BAP and forward to eligible BPPs.
+- **Phase:** Discovery
 
 -   **Method:** `POST`
 -   **Request Body Schema:**
@@ -297,8 +297,8 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
 ### `/on_search`
 
-**Purpose:** Receive `on_search` from BPP and forward to BAP.
-**Phase:** Discovery
+- **Purpose:** Receive `on_search` from BPP and forward to BAP.
+- **Phase:** Discovery
 
 -   **Method:** `POST`
 -   **Request Body Schema:**
@@ -316,8 +316,8 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
 ### `/search`
 
-**Purpose:** Initiate a search for services based on user intent.
-**Phase:** Discovery
+- **Purpose:** Initiate a search for services based on user intent.
+- **Phase:** Discovery
 
 -   **Method:** `POST`
 -   **Request Body Schema:**
@@ -334,8 +334,8 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
 ### `/select`
 
-**Purpose:** Submit selection of service/item.
-**Phase:** Order
+- **Purpose:** Submit selection of service/item.
+- **Phase:** Order
 
 -   **Method:** `POST`
 -   **Request Body Schema:**
@@ -350,8 +350,8 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
 ### `/init`
 
-**Purpose:** Initialize order with billing/shipping info.
-**Phase:** Order
+- **Purpose:** Initialize order with billing/shipping info.
+- **Phase:** Order
 
 -   **Method:** `POST`
 -   **Request Body Schema:**
@@ -366,8 +366,8 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
 ### `/confirm`
 
-**Purpose:** Final confirmation of order.
-**Phase:** Order
+- **Purpose:** Final confirmation of order.
+- **Phase:** Order
 
 -   **Method:** `POST`
 -   **Request Body Schema:**
@@ -382,8 +382,8 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
 ### `/status`
 
-**Purpose:** Request status of an order.
-**Phase:** Fulfillment
+- **Purpose:** Request status of an order.
+- **Phase:** Fulfillment
 
 -   **Method:** `POST`
 -   **Request Body Schema:**
@@ -398,8 +398,8 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
 ### `/track`
 
-**Purpose:** Track real-time order status (if applicable).
-**Phase:** Fulfillment
+- **Purpose:** Track real-time order status (if applicable).
+- **Phase:** Fulfillment
 
 -   **Method:** `POST`
 -   **Request Body Schema:**
@@ -414,8 +414,8 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
 ### `/cancel`
 
-**Purpose:** Cancel an active order.
-**Phase:** Fulfillment
+- **Purpose:** Cancel an active order.
+- **Phase:** Fulfillment
 
 -   **Method:** `POST`
 -   **Request Body Schema:**
@@ -430,8 +430,8 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
 ### `/rating`
 
-**Purpose:** Submit a service or item rating.
-**Phase:** Post-Fulfillment
+- **Purpose:** Submit a service or item rating.
+- **Phase:** Post-Fulfillment
 
 -   **Method:** `POST`
 -   **Request Body Schema:**
@@ -446,8 +446,8 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
 ### `/support`
 
-**Purpose:** Submit a support query or complaint.
-**Phase:** Post-Fulfillment
+- **Purpose:** Submit a support query or complaint.
+- **Phase:** Post-Fulfillment
 
 -   **Method:** `POST`
 -   **Request Body Schema:**
