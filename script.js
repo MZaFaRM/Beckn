@@ -54,6 +54,15 @@ document.getElementById("cancelBtn").addEventListener("click", () => {
 });
 
 const submitForm = async () => {
+	// disable the submit button to prevent multiple submissions
+	const submitButton = document.getElementById("submitBtn");
+	submitButton.textContent = "Submitting...";
+	submitButton.disabled = true;
+	setTimeout(() => {
+		submitButton.disabled = false;
+		submitButton.textContent = "Submit";
+	}, 5000);
+
 	const name = document.getElementById("name").value;
 	const role = document.querySelector('input[name="role"]:checked')?.value;
 	const phone = document.getElementById("tel").value;
