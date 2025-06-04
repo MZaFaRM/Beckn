@@ -5,7 +5,7 @@ This repository contains solutions for multiple assignments related to the Beckn
 ## Assignment Branches
 
 - **[Assignment 1 - a1-sol](https://github.com/MZaFaRM/beckn/tree/a1-sol)**: Solution for **Assignment 1**. This branch contains the implementation and instructions for integrating Beckn with UKI for soil testing.
-- **[Assignment 2 - a2-sol](https://github.com/MZaFaRM/beckn/tree/a2-sol)**: Solution for **Assignment 2**. This branch contains the implementation and instructions for the next phase of the Beckn-UKI integration.
+- **[Assignment 2 - a2-sol](https://github.com/MZaFaRM/beckn/tree/a2-sol)**: Solution for **Assignment 2**. This branch contains the implementation and instructions for the agri-service platform.
 
 ## Instructions
 
