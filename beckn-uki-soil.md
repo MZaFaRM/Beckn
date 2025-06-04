@@ -51,17 +51,55 @@ In the context of *soil testing*, UKI enables farmers to discover service provid
 <details>
   <summary><a href="./api-reference.md">&emsp;API Call Sequence</a></summary>
 
-- [5.1 High-Level API Flow](#51-high-level-api-flow)
+  <details>
+    <summary><a href="./api-reference.md#role-wise-api-endpoint-summary">Role-wise API Endpoint Summary</a></summary>
+  </details>
 
-- [5.2 Supported API Calls](#52-supported-api-calls)
+  <details>
+    <summary><a href="./api-reference.md#beckn-application-platform-bap">Beckn Application Platform (BAP)</a></summary>
 
-- [5.3 Callback Considerations](#53-callback-considerations)
+  -   [`/on_search`](./api-reference.md#on_search)
+  -   [`/on_select`](./api-reference.md#on_select)
+  -   [`/on_init`](./api-reference.md#on_init)
+  -   [`/on_confirm`](./api-reference.md#on_confirm)
+  -   [`/on_status`](./api-reference.md#on_status)
+  -   [`/on_track`](./api-reference.md#on_track)
+  -   [`/on_cancel`](./api-reference.md#on_cancel)
+  -   [`/on_update`](./api-reference.md#on_update)
+  -   [`/on_rating`](./api-reference.md#on_rating)
+  -   [`/on_support`](./api-reference.md#on_support)
 
-- [5.4 Error Handling Patterns](#54-error-handling-patterns)
+  </details>
 
-- [5.6 Developer Notes](#56-developer-notes)
+  <details>
+    <summary><a href="./api-reference.md#beckn-gateway-bg">Beckn Gateway (BG)</a></summary>
+
+  -   [`/search`](./api-reference.md#search)
+  -   [`/on_search`](./api-reference.md#on_search)
+
+  </details>
+
+  <details>
+    <summary><a href="./api-reference.md#beckn-provider-platform-bpp">Beckn Provider Platform (BPP)</a></summary>
+
+  -   [`/search`](./api-reference.md#search)
+  -   [`/select`](./api-reference.md#select)
+  -   [`/init`](./api-reference.md#init)
+  -   [`/confirm`](./api-reference.md#confirm)
+  -   [`/status`](./api-reference.md#status)
+  -   [`/track`](./api-reference.md#track)
+  -   [`/cancel`](./api-reference.md#cancel)
+  -   [`/rating`](./api-reference.md#rating)
+  -   [`/support`](./api-reference.md#support)
+
+  </details>
+
+  <details>
+    <summary><a href="./api-reference.md#developer-notes">Developer Notes</a></summary>
+  </details>
 
 </details>
+
 
 <details>
   <summary>
