@@ -1144,7 +1144,7 @@ This document provides the full API reference for Beckn-compliant endpoints used
       }
     },
     "action": "search",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "bap_id": "soil-bap.krishi.network",
     "bap_uri": "https://soil-bap.krishi.network",
     "transaction_id": "b9c11300-2244-4b8a-9201-54a1d236f4c2",
