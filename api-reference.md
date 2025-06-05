@@ -290,6 +290,47 @@ This document provides the full API reference for Beckn-compliant endpoints used
     -   `context`: `ContextForSearch`
     -   `message`: `MessageForSearch`
 
+<details><summary>Sample Payload</summary>
+
+```json
+{
+  "context": {
+    "domain": "agri.soil",
+    "location": {
+      "country": { "code": "IND" },
+      "city":   { "code": "std:011" }
+    },
+    "action":        "search",
+    "version":       "1.1.0",
+    "bap_id":        "soil-bap.krishi.network",
+    "bap_uri":       "https://soil-bap.krishi.network",
+    "transaction_id":"a51f4f9d-6b3f-40d1-9b14-0d9b4f7c2a01",
+    "message_id":    "d7e6b0e9-11d9-4ab0-91a3-8c68d1f8f4c2",
+    "timestamp":     "2025-06-05T19:10:00Z",
+    "ttl":           "PT10M",
+    "key":           "MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEp3...=="
+  },
+  "message": {
+    "intent": {
+      "category": { "id": "soil_testing" },
+      "item":     { "id": "soil-npk-package" },
+      "fulfillment": {
+        "type": "home",
+        "end":  {
+          "location": {
+            "gps": "28.6139,77.2090",
+            "address": { "area_code": "110001" }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+</details>
+ 
+
 -   **Response Body Schema:**
 
     -   `message`: `{ Ack }`
@@ -306,6 +347,98 @@ This document provides the full API reference for Beckn-compliant endpoints used
     -   `context`: `ContextForOn_search`
     -   `message`: `Catalog`
     -   `error`: `Error`
+
+<details><summary>Sample Payload</summary>
+
+```json
+{
+  "context": {
+    "domain": "agri.soil",
+    "location": {
+      "country": { "code": "IND" },
+      "city":   { "code": "std:011" }
+    },
+    "action":        "on_search",
+    "version":       "1.1.0",
+    "bap_id":        "soil-bap.krishi.network",
+    "bap_uri":       "https://soil-bap.krishi.network",
+    "bpp_id":        "soil-lab-x.in",
+    "bpp_uri":       "https://soil-lab-x.in/beckn",
+    "transaction_id":"a51f4f9d-6b3f-40d1-9b14-0d9b4f7c2a01",
+    "message_id":    "f43f94d5-2d02-4b4e-8662-66d2c5b5987f",
+    "timestamp":     "2025-06-05T19:11:30Z",
+    "ttl":           "PT10M",
+    "key":           "MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEQg...=="
+  },
+  "message": {
+    "catalog": {
+      "descriptor": {
+        "name": "Soil-Lab X Service Catalog",
+        "short_desc": "In-field soil sampling and lab analysis"
+      },
+      "fulfillments": [
+        {
+          "id":   "home-collection",
+          "type": "home",
+          "rateable": true
+        }
+      ],
+      "payments": [
+        {
+          "id": "cod-on-fulfillment",
+          "collected_by": "bpp",
+          "type": "ON-FULFILLMENT"
+        }
+      ],
+      "providers": [
+        {
+          "id": "soil-lab-x.in",
+          "descriptor": { "name": "Soil Lab X" },
+          "categories": [
+            {
+              "id": "soil_testing",
+              "descriptor": { "name": "Soil Testing" }
+            }
+          ],
+          "fulfillments": [
+            { "id": "home-collection", "type": "home" }
+          ],
+          "items": [
+            {
+              "id": "soil-npk-package",
+              "descriptor": {
+                "name": "NPK + pH Analysis",
+                "short_desc": "Macro-nutrient & acidity profile"
+              },
+              "price": {
+                "currency": "INR",
+                "value": "450.00"
+              },
+              "category_ids": [ "soil_testing" ],
+              "fulfillment_ids": [ "home-collection" ],
+              "rateable": true
+            }
+          ],
+          "locations": [
+            {
+              "id": "delhi-center",
+              "descriptor": { "name": "Delhi Processing Centre" },
+              "gps": "28.6139,77.2090",
+              "address": "Connaught Place, New Delhi 110001"
+            }
+          ],
+          "ttl":  "3600"
+        }
+      ],
+      "ttl": "3600",
+      "exp": "2025-06-05T20:11:30Z"
+    }
+  }
+}
+```
+
+</details>
+ 
 
 -   **Response Body Schema:**
 
