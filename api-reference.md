@@ -460,6 +460,33 @@ This document provides the full API reference for Beckn-compliant endpoints used
     -   `message`: `{ Ack }`
     -   `error`: `Error`
 
+
+## Assumptions Made
+
+| **Category**             | **Assumption**                                                                              | **Applies To**                          | **UKI-Specific Notes**                                            |
+| ------------------------ | ------------------------------------------------------------------------------------------- | --------------------------------------- | ----------------------------------------------------------------- |
+| **1. Required Fields**   | Only fields marked in `required:` are enforced. Others are optional by default.             | All schemas (`Context`, `Intent`, etc.) | UKI allows sparse intents in early search.                        |
+| **2. UUID Format**       | `transaction_id`, `message_id` must be valid UUID v4 strings.                               | `Context`                               | Required by sandbox validators.                                   |
+| **3. ISO DateTime**      | `timestamp`, `valid_from`, `valid_to` use RFC3339.                                          | `Context`, `Authorization`, `Time`      | Mandatory in UKI sandbox APIs.                                    |
+| **4. ISO Duration**      | `ttl`, `duration` must use ISO 8601 (e.g., `PT10M`).                                        | `Context.ttl`, `Time.duration`          | Required for request expiration.                                  |
+| **5. Location Format**   | Use `country.code`, `city.code`, `gps`, and/or `area_code`.                                 | `Context.location`, `Fulfillment.end`   | UKI recommends `area_code` for pin-level resolution.              |
+| **6. Domain Code**       | Must be a valid domain code from registry (e.g., `agri.soil`).                              | `Context.domain`, `Subscriber.domain`   | UKI uses granular codes like `agri.soil`, `agri.input`.           |
+| **7. City Code**         | Use Beckn-standard codes (`std:011` = Delhi).                                               | `Context.location.city.code`            | UKI uses `std:` format throughout.                                |
+| **8. Subscriber IDs**    | `bap_id`, `bpp_id` must be FQDNs (e.g., `soil-bap.krishi.network`).                         | `Context`                               | Must match UKI registry entries.                                  |
+| **9. Subscriber URIs**   | `bap_uri`, `bpp_uri` must be HTTPS URLs containing the same domain as `*_id`.               | `Context`                               | UKI registry validation enforces this.                            |
+| **10. Action Enum**      | `action` must exactly be `"search"` for `/search`.                                          | `Context.action`                        | Validated in schema via `enum: [search]`.                         |
+| **11. Key Format**       | `key` must be a registered base64 public encryption key.                                    | `Context.key`                           | UKI registry uses this for request signature validation.          |
+| **12. Versioning**       | Use `"1.1.0"` unless otherwise agreed.                                                      | `Context.version`                       | UKI uses `1.1.0` for all sandbox endpoints.                       |
+| **13. Item & Category**  | Use real `item.id`, `category.id` from the BPP catalog.                                     | `Intent.item`, `Intent.category`        | UKI BPPs expose soil test kits like `soil-npk-package`.           |
+| **14. Fulfillment Type** | Use defined types (`home`, `lab`, `virtual`) — not free text.                               | `Intent.fulfillment.type`               | UKI currently supports `home` for sample collection.              |
+| **15. Payment Terms**    | Acceptable values: `collected_by: bpp`, `type: ON-FULFILLMENT`.                             | `Intent.payment`                        | Matches most agri test service models.                            |
+| **16. Tags & Filters**   | Use `tags` for extensions like crop type, urgency, etc.                                     | `Intent.tags`                           | UKI encourages tagging for smart filtering (e.g., `crop: wheat`). |
+| **17. Descriptors**      | `descriptor.name` can be used for fuzzy/voice/text queries.                                 | `Intent.descriptor`                     | Optional, useful for UI/UX & NLP-based search.                    |
+| **18. Flexible Intent**  | You can send partial intents (e.g., only `category.id` or only `fulfillment.end.location`). | `Intent`                                | UKI BPPs must handle minimal intents.                             |
+| **19. Catalog Matching** | Catalog results returned via `on_search` may include exact, related, or recommended items.  | BPP behavior                            | `Item.matched`, `Item.recommended` flags may be set.              |
+| **20. Extra Fields**     | Schema-compliant processors ignore unknown fields if not in `additionalProperties: false`.  | All objects                             | Safe to enrich payloads with metadata for internal use.           |
+
+
 ## Developer Notes
 
 -   All API timestamps must follow a common format.
