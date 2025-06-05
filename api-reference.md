@@ -325,6 +325,78 @@ This document provides the full API reference for Beckn-compliant endpoints used
     -   `context`: `ContextForSearch`
     -   `message`: `MessageForSearch`
 
+<details><summary>Sample Payload</summary>
+<br>
+  
+```json
+{
+  "context": {
+    "domain": "agri.soil",
+    "location": {
+      "country": {
+        "code": "IND"
+      },
+      "city": {
+        "code": "std:011"
+      }
+    },
+    "action": "search",
+    "version": "1.0.0",
+    "bap_id": "soil-bap.krishi.network",
+    "bap_uri": "https://soil-bap.krishi.network",
+    "transaction_id": "b9c11300-2244-4b8a-9201-54a1d236f4c2",
+    "message_id": "9a131c50-3153-4e35-9fd5-838fabe4c6fc",
+    "timestamp": "2025-06-05T19:05:00Z",
+    "ttl": "PT10M",
+    "key": "MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEK1a2FbX1YjK..."
+  },
+  "message": {
+    "intent": {
+      "category": {
+        "id": "soil_testing"
+      },
+      "item": {
+        "id": "soil-npk-package"
+      },
+      "fulfillment": {
+        "type": "home",
+        "end": {
+          "location": {
+            "gps": "28.6139,77.2090",
+            "address": {
+              "area_code": "110001"
+            }
+          }
+        }
+      },
+      "payment": {
+        "collected_by": "bpp",
+        "type": "ON-FULFILLMENT"
+      },
+      "descriptor": {
+        "name": "Soil nutrient testing at farm"
+      },
+      "tags": [
+        {
+          "descriptor": {
+            "name": "Crop Type"
+          },
+          "list": [
+            {
+              "descriptor": {
+                "name": "Wheat"
+              },
+              "value": "wheat"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+</details>
+
 -   **Response Body Schema:**
 
     -   `message`: `{ Ack }`
@@ -343,6 +415,80 @@ This document provides the full API reference for Beckn-compliant endpoints used
     -   `context`: `ContextForSelect`
     -   `message`: `MessageForSelect`
 
+<details><summary>Sample Payload</summary>
+<br>
+
+```json
+{
+  "context": {
+    "domain": "agri.soil",
+    "location": {
+      "country": { "code": "IND" },
+      "city":    { "code": "std:011" }
+    },
+    "action":        "select",
+    "version":       "1.1.0",
+    "bap_id":        "soil-bap.krishi.network",
+    "bap_uri":       "https://soil-bap.krishi.network",
+    "bpp_id":        "soil-lab-x.in",
+    "bpp_uri":       "https://soil-lab-x.in/beckn",
+    "transaction_id":"b9c11300-2244-4b8a-9201-54a1d236f4c2",
+    "message_id":    "2cc2e7a2-d5ed-45e1-a2cc-068e0d8c5b9f",
+    "timestamp":     "2025-06-05T19:07:30Z",
+    "ttl":           "PT10M",
+    "key":           "MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEK1a2FbX1YjK..."
+  },
+
+  "message": {
+    "order": {
+      "provider": {
+        "id": "soil-lab-x.in"
+      },
+
+      "items": [
+        {
+          "id":       "soil-npk-package",
+          "quantity": {
+            "selected": { "count": 1 }
+          },
+          "price": {
+            "currency": "INR",
+            "value":    "500"
+          }
+        }
+      ],
+
+      "fulfillments": [
+        {
+          "id":   "fulfillment-1",
+          "type": "home"
+        }
+      ],
+
+      "quote": {
+        "id":   "quote-9876",
+        "price": {
+          "currency": "INR",
+          "value":    "500"
+        },
+        "ttl": "PT30M"
+      },
+
+      "payments": [
+        {
+          "collected_by": "bpp",
+          "type":         "ON-FULFILLMENT",
+          "status":       "NOT-PAID"
+        }
+      ]
+    }
+  }
+}
+```
+
+</details>
+ 
+
 -   **Response Body Schema:**
 
     -   `message`: `{ Ack }`
@@ -358,6 +504,105 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
     -   `context`: `ContextForInit`
     -   `message`: `MessageForInit`
+ 
+<details><summary>Sample Payload</summary>
+
+```json
+{
+  "context": {
+    "domain": "agri.soil",
+    "location": {
+      "country": { "code": "IND" },
+      "city":    { "code": "std:011" }
+    },
+    "action": "init",
+    "version": "1.1.0",
+    "bap_id":  "soil-bap.krishi.network",
+    "bap_uri": "https://soil-bap.krishi.network",
+    "transaction_id": "b9c11300-2244-4b8a-9201-54a1d236f4c2",
+    "message_id":     "6d2a8e4e-0c29-4732-93f2-2c7db9c9f3c1",
+    "timestamp": "2025-06-05T19:10:00Z",
+    "ttl":       "PT10M",
+    "key": "MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEK1a2FbX1YjK..."
+  },
+
+  "message": {
+    "order": {
+      "provider": {
+        "id": "soil-lab-x.in",
+        "descriptor": { "name": "Soil Lab X" }
+      },
+
+      "items": [
+        {
+          "id": "soil-npk-package",
+          "quantity": {
+            "selected": { "count": 1 }
+          },
+          "descriptor": { "name": "Soil NPK Analysis – Farm Pickup" },
+          "price": {
+            "currency": "INR",
+            "value": "500"
+          }
+        }
+      ],
+
+      "fulfillments": [
+        {
+          "id":   "fulfillment1",
+          "type": "home",
+          "customer": {
+            "person": { "name": "Ramesh Kumar" },
+            "contact": { "phone": "9123456789" }
+          },
+          "end": {
+            "location": {
+              "gps": "28.6139,77.2090",
+              "address": {
+                "area_code": "110001"
+              }
+            }
+          }
+        }
+      ],
+
+      "payments": [
+        {
+          "id": "pay-on-fulfillment",
+          "collected_by": "bpp",
+          "type": "ON-FULFILLMENT",
+          "status": "NOT-PAID",
+          "params": {
+            "amount": "500",
+            "currency": "INR"
+          }
+        }
+      ],
+
+      "quote": {
+        "id": "989121b2-7b19-46aa-882e-884e1f7061c4",
+        "price": {
+          "currency": "INR",
+          "value":    "500"
+        },
+        "ttl": "PT30M"
+      },
+
+      "billing": {
+        "name":  "Ramesh Kumar",
+        "address": "Farm #42, Village XYZ, Delhi 110001",
+        "phone":  "9123456789",
+        "email":  "ramesh.k@example.com"
+      },
+
+      "created_at": "2025-06-05T19:10:00Z"
+    }
+  }
+}
+```
+
+</details>
+ 
 
 -   **Response Body Schema:**
 
@@ -375,6 +620,96 @@ This document provides the full API reference for Beckn-compliant endpoints used
     -   `context`: `ContextForConfirm`
     -   `message`: `MessageForConfirm`
 
+<details><summary>Sample Payload</summary>
+
+```json
+{
+  "context": {
+    "domain": "agri.soil",
+    "location": {
+      "country": { "code": "IND" },
+      "city":    { "code": "std:011" }
+    },
+    "action": "confirm",
+    "version": "1.1.0",
+    "bap_id": "soil-bap.krishi.network",
+    "bap_uri": "https://soil-bap.krishi.network",
+    "bpp_id": "soil-lab-x.in",
+    "bpp_uri": "https://soil-lab-x.in/beckn/",
+    "transaction_id": "b9c11300-2244-4b8a-9201-54a1d236f4c2",
+    "message_id":     "d0d16693-4e10-49ce-a22e-bbf3e83f7c64",
+    "timestamp":      "2025-06-05T19:10:00Z",
+    "ttl":            "PT10M",
+    "key":            "MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEK1a2FbX1YjK..."
+  },
+  "message": {
+    "order": {
+      "id": "7a1f94b2-b3ca-4a3f-9151-4c62f1c9bb32",
+      "provider": {
+        "id": "soil-lab-x.in"
+      },
+      "items": [
+        {
+          "id": "soil-npk-package",
+          "descriptor": { "name": "Soil NPK Test" },
+          "quantity": {
+            "selected": { "count": 1 }
+          },
+          "price": {
+            "currency": "INR",
+            "value": "500.00"
+          }
+        }
+      ],
+      "fulfillments": [
+        {
+          "id":   "FUL-1",
+          "type": "home",
+          "customer": {
+            "person": { "name": "Ram Kumar" },
+            "contact": { "phone": "9123456789" }
+          },
+          "end": {
+            "location": {
+              "gps": "28.6139,77.2090",
+              "address": "110001, Delhi"
+            }
+          }
+        }
+      ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "500.00"
+        },
+        "breakup": [
+          {
+            "title": "NPK Analysis",
+            "price": { "currency": "INR", "value": "500.00" }
+          }
+        ]
+      },
+      "payments": [
+        {
+          "collected_by": "bpp",
+          "type": "ON-FULFILLMENT",
+          "status": "NOT-PAID"
+        }
+      ],
+      "billing": {
+        "name": "Ram Kumar",
+        "address": "Village Road, Delhi, 110001",
+        "phone": "9123456789"
+      },
+      "created_at": "2025-06-05T19:10:00Z"
+    }
+  }
+}
+```
+
+</details>
+
+
 -   **Response Body Schema:**
 
     -   `message`: `{ Ack }`
@@ -390,6 +725,36 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
     -   `context`: `ContextForStatus`
     -   `message`: `MessageForStatus`
+ 
+<details><summary>Sample Payload</summary>
+<br>
+
+```json
+{
+  "context": {
+    "domain": "agri.soil",
+    "location": {
+      "country": { "code": "IND" },
+      "city":    { "code": "std:011" }
+    },
+    "action": "status",
+    "version": "1.1.0",
+    "bap_id": "soil-bap.krishi.network",
+    "bap_uri": "https://soil-bap.krishi.network",
+    "transaction_id": "b9c11300-2244-4b8a-9201-54a1d236f4c2",
+    "message_id": "5c9c476e-6c7f-4105-b87f-2c48cf6b53e1",
+    "timestamp": "2025-06-05T20:15:00Z",
+    "ttl": "PT10M",
+    "key": "MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEK1a2FbX1YjK..."
+  },
+  "message": {
+    "order_id": "f0d7a9e3-1b89-4b3e-8d9c-0995b46e1af2"
+  }
+}
+```
+
+</details>
+
 
 -   **Response Body Schema:**
 
@@ -406,6 +771,37 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
     -   `context`: `ContextForTrack`
     -   `message`: `MessageForTrack`
+ 
+<details><summary>Sample Payload</summary>
+
+```json
+{
+  "context": {
+    "domain": "agri.soil",
+    "location": {
+      "country": { "code": "IND" },
+      "city":    { "code": "std:011" }
+    },
+    "action": "track",
+    "version": "1.1.0",
+    "bap_id": "soil-bap.krishi.network",
+    "bap_uri": "https://soil-bap.krishi.network",
+    "bpp_id": "soil-lab-x.in",
+    "bpp_uri": "https://soil-lab-x.in/beckn",
+    "transaction_id": "b9c11300-2244-4b8a-9201-54a1d236f4c2",
+    "message_id": "29df4ee5-b60c-4e7c-bdcc-63ea3ef71909",
+    "timestamp": "2025-06-05T19:10:00Z",
+    "ttl": "PT5M",
+    "key": "MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEK1a2FbX1YjK..."
+  },
+  "message": {
+    "order_id": "ORD-f8a3d337-eab1-4c9e-bc14-934bf1a5c3b7",
+    "callback_url": "https://soil-bap.krishi.network/callbacks/track"
+  }
+}
+```
+
+</details>
 
 -   **Response Body Schema:**
 
@@ -423,6 +819,42 @@ This document provides the full API reference for Beckn-compliant endpoints used
     -   `context`: `ContextForCancel`
     -   `message`: `MessageForCancel`
 
+<details><summary>Sample</summary>
+<br>
+
+```json
+{
+  "context": {
+    "domain": "agri.soil",
+    "location": {
+      "country": { "code": "IND" },
+      "city":    { "code": "std:011" }
+    },
+    "action": "cancel",
+    "version": "1.1.0",
+    "bap_id": "soil-bap.krishi.network",
+    "bap_uri": "https://soil-bap.krishi.network",
+    "bpp_id": "soil-lab-x.in",
+    "bpp_uri": "https://soil-lab-x.in/beckn",
+    "transaction_id": "b9c11300-2244-4b8a-9201-54a1d236f4c2",
+    "message_id":     "2eaa4953-cd4b-43f1-a5a5-6ad411ca64bc",
+    "timestamp": "2025-06-05T20:10:00Z",
+    "ttl": "PT10M",
+    "key": "MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEkWZ9..."
+  },
+  "message": {
+    "order_id": "soil-order-12345",
+    "cancellation_reason_id": "CHANGE_OF_MIND",
+    "descriptor": {
+      "name": "Buyer requested cancellation",
+      "code": "change_of_mind",
+      "short_desc": "Farmer no longer requires soil test"
+    }
+  }
+}
+```
+</details>
+
 -   **Response Body Schema:**
 
     -   `message`: `{ Ack }`
@@ -439,6 +871,48 @@ This document provides the full API reference for Beckn-compliant endpoints used
     -   `context`: `ContextForRating`
     -   `message`: `MessageForRating`
 
+<details><summary>Sample Payload</summary>
+
+```json
+{
+  "context": {
+    "domain": "agri.soil",
+    "location": {
+      "country": { "code": "IND" },
+      "city":    { "code": "std:011" }
+    },
+    "action": "rating",
+    "version": "1.1.0",
+    "bap_id": "soil-bap.krishi.network",
+    "bap_uri": "https://soil-bap.krishi.network",
+    "bpp_id": "soil-lab-x.in",
+    "bpp_uri": "https://soil-lab-x.in/beckn/",
+    "transaction_id": "b9c11300-2244-4b8a-9201-54a1d236f4c2",
+    "message_id":     "d0ae4b5d-6e1a-48fb-8cd9-4d1f1c6c8659",
+    "timestamp": "2025-06-05T19:45:00Z",
+    "ttl": "PT10M",
+    "key": "MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAExxxxxxxxxxxxxxxxxxxxxxxxxxxxx=="
+  },
+  "message": {
+    "ratings": [
+      {
+        "rating_category": "Order",
+        "id": "order-76ab1234",
+        "value": "5"
+      },
+      {
+        "rating_category": "Fulfillment",
+        "id": "fulfillment-ef98abcd",
+        "value": "4"
+      }
+    ]
+  }
+}
+```
+
+</details>
+
+
 -   **Response Body Schema:**
 
     -   `message`: `{ Ack }`
@@ -454,6 +928,44 @@ This document provides the full API reference for Beckn-compliant endpoints used
 
     -   `context`: `ContextForSupport`
     -   `message`: `MessageForSupport`
+ 
+<details><summary>Sample Payload</summary>
+<br>
+
+```json
+{
+  "context": {
+    "domain": "agri.soil",
+    "location": {
+      "country": { "code": "IND" },
+      "city":    { "code": "std:011" }
+    },
+    "action": "support",
+    "version": "1.1.0",
+    "bap_id": "soil-bap.krishi.network",
+    "bap_uri": "https://soil-bap.krishi.network",
+    "bpp_id": "soil-lab-x.in",
+    "bpp_uri": "https://soil-lab-x.in/beckn",
+    "transaction_id": "b9c11300-2244-4b8a-9201-54a1d236f4c2",
+    "message_id":     "d1f77610-d5de-4b55-a2e6-62d481c2cc23",
+    "timestamp": "2025-06-05T19:15:00Z",
+    "ttl": "PT5M",
+    "key": "MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAFv0x4fsd2..."
+  },
+  "message": {
+    "support": {
+      "ref_id": "ORD-20250605-0001",
+      "callback_phone": "+91-9888877777",
+      "phone":          "+91-1122334455",
+      "email":          "support@soil-lab-x.in",
+      "url":            "https://soil-lab-x.in/support"
+    }
+  }
+}
+```
+
+</details>
+ 
 
 -   **Response Body Schema:**
 
