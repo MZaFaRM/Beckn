@@ -41,7 +41,7 @@ const resetForm = () => {
 	setTimeout(() => {
 		document.getElementById("thankYouMessage").classList.add("hidden");
 		document.querySelector(".join-us-cards").classList.remove("hidden");
-	}, 3000);
+	}, 5000);
 };
 
 document.getElementById("cancelBtn").addEventListener("click", () => {
@@ -49,7 +49,7 @@ document.getElementById("cancelBtn").addEventListener("click", () => {
 	cards.classList.remove("hidden");
 	const container = document.getElementById("formContainer");
 	container.classList.add("hidden");
-	document.getElementById("thankYouMessage").style.display = "none";
+	document.getElementById("thankYouMessage").classList.add("hidden");
 	document.getElementById("signupForm").reset();
 });
 
